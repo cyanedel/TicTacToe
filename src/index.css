@@ -1,0 +1,88 @@
+body{ background-color: #333; margin-top: 40px;}
+#init-screen{
+	margin: 240px auto 0px;
+	color: #fff;
+}
+#init-screen span{
+	display: inline-block;
+	padding: 14px;
+	border: 1px solid #555;
+	border-radius: 5px;
+}
+#init-screen span *{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0px;
+}
+#init-screen span label{ margin-bottom: 7px; }
+#init-screen span #game-size{ margin: 0px 7px; }
+#init-screen small{margin: 5px 0px 0px; color: #555;}
+#game-size{width: 40px}
+#game-status{
+	display: inline-block;
+	margin-bottom: 20px;
+	vertical-align: top;
+}
+#game-status h1{
+	color: #fff;
+	display: block;
+}
+#screen-notice{
+	border-radius: 5px;
+	margin: 0px 0px 10px;
+	padding: 7px;
+}
+
+#tic-tac-toe .disable {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size:30px;
+	text-transform:uppercase;
+}
+#tic-tac-toe ul#game {
+	border-radius: 5px;
+	overflow: hidden;
+}
+#tic-tac-toe #game li {
+	background-color: #fff;
+	color:#ccc;
+	cursor:pointer;
+	display: inline-block;
+	font-size:20px;
+	height:60px;
+	line-height:60px;
+	list-style:none;
+	outline: 1px solid #ddd;
+	padding:0;
+	text-align:center;
+	width:60px;
+}
+#tic-tac-toe #game li.disable      {color:#fff}
+#tic-tac-toe #game                 {display: inline-block; padding:0;}
+#tic-tac-toe #game.mid             {margin: 5px 0px 10px;}
+#tic-tac-toe #reset-game,
+#tic-tac-toe #clear-board {
+	border: none;
+	color:#fff;
+	cursor:pointer;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:1em;
+	margin-bottom: 20px;
+	outline: 1px;
+	padding:5px 10px;
+	text-align:center;
+	text-transform: lowercase;
+	width:calc(100% / 2 - 25px);
+}
+#tic-tac-toe #reset-game {
+	margin-right: 10px;
+}
+.input-prepend span.pre_text       {width:55px}
+.input-prepend                     {margin-bottom:10px; width: 100%;}
+.clr                               {clear:both; height:0}
+#tic-tac-toe h1                    {text-align:center; font-size:28px}
+#tic-tac-toe li::-moz-selection    {background:none;color:#000;}
+#tic-tac-toe li::-webkit-selection {background:none;color:#000;}
+#tic-tac-toe                       {width:calc(100% - 40px); margin:0 auto}
+#tic-tac-toe #game-status          {width:220px; margin:0 auto}
+.input-append .win_times           {background:#fff; width: calc(100% - (64px * 2))}
+.input-append .win_text            {width:52px}
