@@ -9,10 +9,10 @@ $(function() {
 	;
 
 	function generateBoard(){
-		var li = ""
-		var maxWidth   = 520
-		var boardWidth = gameSize * 60
-		var isExceed   = boardWidth >= maxWidth && gameSize <= 25
+		let li = ""
+		let maxWidth   = 520
+		let boardWidth = gameSize * 60
+		let isExceed   = boardWidth >= maxWidth && gameSize <= 25
 
 		$("#p1-bar .win_text").text(p1.sign.toUpperCase()+" WIN")
 		$("#p2-bar .win_text").text(p2.sign.toUpperCase()+" WIN")
@@ -21,10 +21,10 @@ $(function() {
 			$("#tic-tac-toe").append($("#game").removeClass("mid"))
 		}
 
-		for (var l = 0; l < boardSize; l++) { li+='<li>+</li>' }
+		for (let l = 0; l < boardSize; l++) { li+='<li>+</li>' }
 		$("#game").html(li).css('width', isExceed ? maxWidth : boardWidth).fadeIn()
 		if(isExceed){
-			var resize = maxWidth / gameSize
+			let resize = maxWidth / gameSize
 			$("#game li").css("width", resize).css("height", resize).css("lineHeight", resize+'px').css("fontSize", resize/2)
 		}else if(gameSize > 25){ $("#game").css("marginRight", "20px") }
 		screenGuide(p1.sign.toUpperCase()+' TURN')
@@ -41,14 +41,14 @@ $(function() {
 	}
 	function scanBoard(){
 		//diagonal
-		for (var initBox = 0; initBox <= gameSize; initBox+=(gameSize-1)) {
-			var isInvert  = initBox == gameSize-1
-			var maxValue  = isInvert ? boardSize-1 : boardSize
-			var increment = isInvert ? gameSize-1  : gameSize+1
-			var lead      = ""
-			var occurence = 0
-			for (var curr = initBox; curr < maxValue; curr+=increment) {
-				var cValue = $("#game li").eq(curr).data('owner')
+		for (let initBox = 0; initBox <= gameSize; initBox+=(gameSize-1)) {
+			let isInvert  = initBox == gameSize-1
+			let maxValue  = isInvert ? boardSize-1 : boardSize
+			let increment = isInvert ? gameSize-1  : gameSize+1
+			let lead      = ""
+			let occurence = 0
+			for (let curr = initBox; curr < maxValue; curr+=increment) {
+				let cValue = $("#game li").eq(curr).data('owner')
 				if(!cValue){
 					break;
 				}else if(lead == ""){
@@ -63,11 +63,11 @@ $(function() {
 		}
 
 		//row
-		for (var row = 0; row < boardSize; row+=gameSize) {
-			var lead      = ""
-			var occurence = 0
-			for (var curr = row; curr < row + gameSize; curr++) {
-				var cValue = $("#game li").eq(curr).data('owner')
+		for (let row = 0; row < boardSize; row+=gameSize) {
+			let lead      = ""
+			let occurence = 0
+			for (let curr = row; curr < row + gameSize; curr++) {
+				let cValue = $("#game li").eq(curr).data('owner')
 				if(!cValue){
 					break;
 				}else if(lead == ""){
@@ -82,11 +82,11 @@ $(function() {
 		}
 
 		//column
-		for (var col = 0; col < gameSize; col++) {
-			var lead      = ""
-			var occurence = 0
-			for (var curr = col; curr < boardSize; curr+=gameSize) {
-				var cValue = $("#game li").eq(curr).data('owner')
+		for (let col = 0; col < gameSize; col++) {
+			let lead      = ""
+			let occurence = 0
+			for (let curr = col; curr < boardSize; curr+=gameSize) {
+				let cValue = $("#game li").eq(curr).data('owner')
 				if(!cValue){
 					break;
 				}else if(lead == ""){
@@ -116,24 +116,24 @@ $(function() {
 	});
 	$('#game').on('click', 'li',function(){
 		if(roundEnd) {clearBoard(true); return;} 
-		var $t = $(this)
+		let $t = $(this)
 
 		if ($t.hasClass('disable')) {
 			screenGuide('Invalid Move: Box already selected.', true)
 			return
 		}
 
-		var turn        = count%2 == 0
-		var chara       = turn ? p1.sign : p2.sign
-		var charaInvert = turn ? p2.sign : p1.sign
-		var charaColor  = turn ? "btn-primary" : "btn-danger"
+		let turn        = count%2 == 0
+		let chara       = turn ? p1.sign : p2.sign
+		let charaInvert = turn ? p2.sign : p1.sign
+		let charaColor  = turn ? "btn-primary" : "btn-danger"
 		$t.text(chara).addClass('disable '+charaColor).data("owner", chara)
 		screenGuide(charaInvert.toUpperCase()+' TURN')
 
 		if(count >= gameSize){
-			var scanResult = scanBoard()
+			let scanResult = scanBoard()
 			if(scanResult){
-				var roundWinner = p1.sign
+				let roundWinner = p1.sign
 				if(scanResult == p1.sign){
 					p1.score++; $('#p1_score').text(p1.score)
 				}else{
